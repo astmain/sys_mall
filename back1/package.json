@@ -10,6 +10,7 @@
     "prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
     "build": "nest build",
+    "build:orm": "tsc -p tsconfig.orm.json",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {

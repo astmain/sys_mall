@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist_orm",
+    "rootDir": "./src/orm"
+  },
+  "include": ["src/orm/**/*"],
+  "exclude": ["node_modules", "dist_orm"]
+}
+
