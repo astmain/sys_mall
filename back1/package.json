@@ -9,7 +9,7 @@
     "dev": "nest start --watch",
     "prod": "node dist/main",
     "build": "nest build",
-    "build:orm": "tsc -p tsconfig.orm.json",
+    "v1": "tsc -p tsconfig.dist_tool_v1_api.json",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
