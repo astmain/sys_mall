@@ -2,24 +2,28 @@
   "compilerOptions": {
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "resolvePackageJsonExports": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ES2023",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "resolvePackageJsonExports": true, // 解析 package.json 中的 exports 字段
+    "esModuleInterop": true, // 允许 ES 模块互操作
+    "isolatedModules": true, // 隔离模块
+    "declaration": true, // 生成声明文件
+    "removeComments": true, // 移除注释
+    "emitDecoratorMetadata": true, // 装饰器元数据
+    "experimentalDecorators": true, // 实验性装饰器
+    "allowSyntheticDefaultImports": true, // 允许合成默认导入
+    "target": "ES2023", // 目标 ES 版本
+    "sourceMap": true, // 生成 sourceMap
+    "outDir": "./dist", // 输出目录
+    "baseUrl": "./", // 基础路径
+    "incremental": true, // 增量编译
+    "skipLibCheck": true, // 跳过库文件检查
+    "strictNullChecks": true, // 严格检查 null 和 undefined
+    "forceConsistentCasingInFileNames": true, // 强制一致的文件名大小写
+    "noImplicitAny": false, // 允许 any 隐身类型类型
+    "strictBindCallApply": false, // 严格绑定调用和应用
+    "noFallthroughCasesInSwitch": false, // 禁用 switch 语句的 fallthrough 检查
+    // 路径别名
+    "paths": {
+      "@src/*": ["./src/*"]
+    }
   }
 }
