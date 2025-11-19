@@ -5,7 +5,7 @@
 
 </template>
 <script setup lang="tsx">
-import { my_add } from '../../back1/dist_orm/index'
+import { my_add } from '../../back1/dist_tool_api/index'
 console.log(my_add(1, 2))
-</script> 
+</script>
 <style scoped></style>

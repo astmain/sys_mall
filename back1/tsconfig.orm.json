@@ -1,10 +1,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist_orm",
-    "rootDir": "./src/orm"
+    "outDir": "./dist_tool_api",
+    "rootDir": "./src/orm",
+    "module": "ESNext",
+    "moduleResolution": "bundler"
   },
   "include": ["src/orm/**/*"],
-  "exclude": ["node_modules", "dist_orm"]
+  "exclude": ["node_modules", "dist_tool_api"]
 }
 
