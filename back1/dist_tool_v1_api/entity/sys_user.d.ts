@@ -17,6 +17,4 @@ export declare class login extends login_base {}
 export declare class remove_ids_user {
   ids: string[]
 }
-export type login_type = InstanceType<typeof login>
-export type remove_ids_user_type = InstanceType<typeof remove_ids_user>
 export {}

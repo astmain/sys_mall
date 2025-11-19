@@ -78,7 +78,3 @@ export class remove_ids_user {
   @IsString({ each: true })
   ids: string[]
 }
-
-// ================================== type ==================================
-export type login_type = InstanceType<typeof login>
-export type remove_ids_user_type = InstanceType<typeof remove_ids_user>
