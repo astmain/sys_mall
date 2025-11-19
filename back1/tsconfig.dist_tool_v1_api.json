@@ -2,10 +2,27 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist_tool_v1_api",
-    "rootDir": "./src/orm",
+    "rootDir": "./src/dist_tool_v1_api",
     "module": "ESNext",
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "resolvePackageJsonExports": false,
+    "noEmit": false,
+    "incremental": false
+
+    // "target": "ES2020",
+    // "module": "commonjs",
+    // "lib": ["ES2020", "dom"],
+    // "strict": true,
+    // "esModuleInterop": true,
+    // "skipLibCheck": true,
+    // "forceConsistentCasingInFileNames": true,
+    // "resolveJsonModule": true,
+    // "moduleResolution": "node",
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    // "strictPropertyInitialization": false,
+    // "declaration": true
   },
-  "include": ["src/orm/**/*"],
+  "include": ["src/dist_tool_v1_api/**/*"],
   "exclude": ["node_modules", "dist_tool_v1_api"]
 }

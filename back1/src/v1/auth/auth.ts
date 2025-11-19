@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common'
+import { Module, Body } from '@nestjs/common'
 import { Api_group } from '@src/plugins/Api_group'
 import { Api_public } from '@src/App_Auth'
 import { Api_Post } from '@src/plugins/Api_Post'
 // ================================== 数据库 ==================================
-
+import  { login } from '@src/dist_tool_v1_api/entity/sys_user'
 // ================================== dto ==================================
 
 // ================================== 服务 ==================================
@@ -11,9 +11,9 @@ import { Api_Post } from '@src/plugins/Api_Post'
 export class auth {
   @Api_public()
   @Api_Post('登陆')
-  login() {
-    console.log('login')
-    return 'login'
+  login(@Body() body: login) {
+    console.log('auth---login', body)
+    return { code: 200, msg: '登录成功', result: { body } }
   }
 }
 
