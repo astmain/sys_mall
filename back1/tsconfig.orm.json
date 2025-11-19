@@ -9,4 +9,3 @@
   "include": ["src/orm/**/*"],
   "exclude": ["node_modules", "dist_tool_api"]
 }
-
