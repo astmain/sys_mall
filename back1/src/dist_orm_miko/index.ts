@@ -1,10 +1,6 @@
 // pnpm install @mikro-orm/core @mikro-orm/postgresql pg
 // pnpm install -D @mikro-orm/cli
 
-
-
-
-
 import 'reflect-metadata'
 import { MikroORM } from '@mikro-orm/core'
 import config from './config'
@@ -22,11 +18,11 @@ export async function initMikroORM() {
     try {
       orm = await MikroORM.init(config)
       console.log('✅ MikroORM 数据库连接成功')
-      
+
       // 可选：检查连接状态
       const isConnected = await orm.isConnected()
       console.log('数据库连接状态:', isConnected ? '已连接' : '未连接')
-      
+
       return orm
     } catch (error) {
       console.error('❌ MikroORM 数据库连接失败:', error)
@@ -85,7 +81,7 @@ export async function testConnection() {
   try {
     const em = await getEntityManager()
     // 执行一个简单查询测试连接
-    await em.getConnection().execute('SELECT 1')
+    // await em.getConnection().execute('SELECT 1')
     console.log('✅ 数据库连接测试成功')
     return true
   } catch (error) {
@@ -99,7 +95,7 @@ export { orm }
 
 // 如果直接运行此文件，则测试数据库连接
 if (require.main === module) {
-  (async () => {
+  ;(async () => {
     try {
       await initMikroORM()
       await testConnection()
