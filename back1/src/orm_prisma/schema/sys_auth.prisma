@@ -44,20 +44,3 @@ model sys_menu {
     children   sys_menu[]   @relation("self_sys_menu")
     sys_depart sys_depart[]
 }
-
-// 属性表 1. 收货地址
-model arg_user_address_take {
-    id       String   @id @default(uuid())
-    user_id  String
-    sys_user sys_user @relation(fields: [user_id], references: [id])
-
-    name   String // 收货人姓名
-    phone  String // 收货人电话
-    region Json   @default("[]") // 收货人地区 格式为：[{code: '110000', name: '北京市'}, {code: '110101', name: '东城区'}]
-
-    street     String // 收货人街道
-    is_default Boolean  @default(false) // 是否默认地址
-    type_tag   String // 标记类型
-    created_at DateTime @default(now())
-    updated_at DateTime @updatedAt
-}

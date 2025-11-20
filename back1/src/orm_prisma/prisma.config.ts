@@ -6,8 +6,8 @@ import { defineConfig } from 'prisma/config'
  * 用于 Prisma Migrate 命令
  */
 export default defineConfig({
-  // Schema 文件路径（支持 glob 模式）
-  schema: ['./src/orm_prisma/*.prisma'],
+  // Schema 目录路径（Prisma 会自动合并该目录下的所有 .prisma 文件）
+  schema: './src/orm_prisma/schema',
   migrations: {
     path: './prisma/migrations',
   },
@@ -17,4 +17,3 @@ export default defineConfig({
     url: 'postgresql://root:123456@103.119.2.223:2006/back?schema=public',
   },
 })
-
