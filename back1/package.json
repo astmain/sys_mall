@@ -24,6 +24,8 @@
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
+    "@mikro-orm/core": "^6.6.0",
+    "@mikro-orm/postgresql": "^6.6.0",
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
     "@nestjs/jwt": "^11.0.1",
@@ -35,12 +37,14 @@
     "dayjs": "^1.11.19",
     "lodash": "^4.17.21",
     "nest-knife4j": "^1.0.1",
+    "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.27",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
+    "@mikro-orm/cli": "^6.6.0",
     "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
     "@types/express": "^5.0.0",

@@ -13,6 +13,7 @@ export const db1_connect = new DataSource({
 })
 
 export const db1 = db1_connect.manager
+export const db_typeorm = db1
 
 async function test1() {
   // 先初始化 DataSource
