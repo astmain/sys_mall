@@ -2,15 +2,20 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "types": ["vite/client"],
+    "types": [
+      "vite/client",
+
+      "element-plus/global", //element-plus自动引入
+      "@vue-macros/reactivity-transform/macros-global" //类型ReactivityTransform响应式数据$ref省略.value
+    ],
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "strict": true,//启用所有严格类型检查选项
+    "noUnusedLocals": true,//报告未使用的局部变量
+    "noUnusedParameters": true,//报告未使用的函数参数
+    "erasableSyntaxOnly": true,//仅允许可删除的语法
+    "noFallthroughCasesInSwitch": true,//报告switch语句中遗漏的break语句
+    "noUncheckedSideEffectImports": true//禁止导入具有副作用的模块，除非它们被使用
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

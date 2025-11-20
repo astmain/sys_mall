@@ -19,12 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue"
-import { useRouter } from "vue-router"
-import { ElMessage, type FormInstance, type FormRules } from "element-plus"
-import { api_v1 } from "@/api_v1"
-import { BUS } from "@/BUS"
-import /*组件*/ env_control from "./env_control.vue"
+import { ref, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
+import { api_v1 } from 'back1/dist_tool_v1_api/api_v1'
+import { BUS } from '@/BUS'
+import /*组件*/ env_control from './env_control.vue'
 
 // 类型定义
 interface LoginForm {
@@ -34,13 +34,13 @@ interface LoginForm {
 
 // 响应式数据
 const login_form = reactive<LoginForm>({
-  phone: "15160315110",
-  password: "123456",
+  phone: '15160315110',
+  password: '123456',
 })
 
 const login_rules: FormRules = {
-  phone: [{ required: true, message: "请输入账号", trigger: "blur" }],
-  password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+  phone: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
 }
 
 // 表单引用
@@ -54,21 +54,22 @@ async function handle_login_api() {
   const valid = await login_form_ref.value.validate()
   if (valid) {
     const res: any = await api_v1.auth.login(login_form)
-    console.log("api_v1.auth.login---res", res)
+    console.log('api_v1.auth.login---res', res)
+    debugger
     if (res.code === 200) {
       // localStorage.setItem("token", res.result.token)
       // console.log("localStorage.setItem(token, res.result.token)", localStorage.getItem("token"))
       BUS.token = res.result.token
-      const res2: any = await api_v1.auth.find_menu_tree_by_user_id()
-      console.log("api_v1.auth.find_menu_tree_by_user_id---res2", res2)
+      // const res2: any = await api_v1.auth.find_menu_tree_by_user_id()
+      // console.log("api_v1.auth.find_menu_tree_by_user_id---res2", res2)
       // const res2: any = await api_v1.user.find_one_user({ id: res.result.id })
       // console.log("api_v1.user.find_one_user---res2", res2)
-      BUS.role_menu_tree = res2.result.menu_tree
+      // BUS.role_menu_tree = res2.result.menu_tree
 
       // BUS.user = res2.result.user
       // 跳转到首页
-      router.push("/home")
-      console.log("router.push(/home)")
+      router.push('/home')
+      console.log('router.push(/home)')
     } else {
       ElMessage.error(res.msg)
     }
