@@ -6,12 +6,6 @@ import { Api_Post } from '@src/plugins/Api_Post'
 import { Api_group } from '@src/plugins/Api_group'
 import { Api_public } from '@src/App_Auth'
 
-// ================================== 数据库 ==================================
-// import { db_typeorm } from 'tool_typeorm'
-// import { sys_user } from 'tool_typeorm'
-// ================================== dto ==================================
-// import { login } from 'tool_typeorm'
-
 // ================================== 服务工具 ==================================
 import { util_uuid9 } from '@src/plugins/util_uuid9'
 import { JwtService } from '@nestjs/jwt'
