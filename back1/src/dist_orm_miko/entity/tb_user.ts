@@ -1,13 +1,19 @@
-import { Entity, PrimaryKey, Property } from '@mikro-orm/core'
+import { Entity, PrimaryKey as ColumnAutoIncrement, Property as Column } from '@mikro-orm/core'
 
 @Entity({ tableName: 'tb_user' })
 export class tb_user {
-  @PrimaryKey()
+  @ColumnAutoIncrement()
   id!: number
 
-  @Property()
+  @Column()
   name!: string
 
-  @Property()
+  @Column()
   email!: string
+
+  @Column() //设置默认值
+  password: string = '123456'
+
+  @Column() //设置默认值
+  status: boolean = true
 }

@@ -90,15 +90,76 @@ export async function testConnection() {
   }
 }
 
+/**
+ * 创建数据库表（根据实体定义）
+ * 注意：这只会创建不存在的表，不会删除或修改已存在的表
+ */
+export async function createSchema() {
+  try {
+    const mikroOrm = await initMikroORM()
+    const generator = mikroOrm.schema
+    
+    // 创建所有表
+    await generator.createSchema()
+    console.log('✅ 数据库表创建成功')
+    return true
+  } catch (error) {
+    console.error('❌ 数据库表创建失败:', error)
+    throw error
+  }
+}
+
+/**
+ * 更新数据库表结构（根据实体定义）
+ * 注意：这会修改已存在的表结构
+ */
+export async function updateSchema() {
+  try {
+    const mikroOrm = await initMikroORM()
+    const generator = mikroOrm.schema
+    
+    // 更新表结构
+    await generator.updateSchema()
+    console.log('✅ 数据库表结构更新成功')
+    return true
+  } catch (error) {
+    console.error('❌ 数据库表结构更新失败:', error)
+    throw error
+  }
+}
+
+/**
+ * 删除所有表（危险操作，谨慎使用）
+ */
+export async function dropSchema() {
+  try {
+    const mikroOrm = await initMikroORM()
+    const generator = mikroOrm.schema
+    
+    // 删除所有表
+    await generator.dropSchema({ wrap: false, dropMigrationsTable: true })
+    console.log('✅ 数据库表删除成功')
+    return true
+  } catch (error) {
+    console.error('❌ 数据库表删除失败:', error)
+    throw error
+  }
+}
+
 // 导出 ORM 实例
 export { orm }
 
-// 如果直接运行此文件，则测试数据库连接
+// 如果直接运行此文件，则测试数据库连接并创建表
 if (require.main === module) {
   ;(async () => {
     try {
       await initMikroORM()
       await testConnection()
+      
+      // 创建数据库表
+      console.log('正在创建数据库表...')
+      await createSchema()
+      
       // 测试完成后关闭连接
       await closeMikroORM()
       process.exit(0)

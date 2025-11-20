@@ -21,6 +21,9 @@
     "prod": "node dist/main",
     "build": "nest build",
     "v1": "tsc -project tsconfig.dist_tool_v1_api.json --watch",
+    "generate": " drizzle-kit generate         --config=./src/dist_drizzle/config.ts",
+    "push": "     drizzle-kit push             --config=./src/dist_drizzle/config.ts",
+
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
@@ -40,11 +43,16 @@
     "dayjs": "^1.11.19",
     "lodash": "^4.17.21",
     "nest-knife4j": "^1.0.1",
-    "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.27",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "@anatine/zod-nestjs": "^2.0.12",
+    "drizzle-orm": "^0.44.7",
+    "drizzle-zod": "^0.8.3",
+    "pg": "^8.16.3",
+    "postgres": "^3.4.7",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@mikro-orm/cli": "^6.6.0",
@@ -57,6 +65,8 @@
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "@types/pg": "^8.15.6",
+    "drizzle-kit": "^0.31.6",
     "typescript": "^5.7.3"
   }
 }
