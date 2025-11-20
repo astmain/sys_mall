@@ -6,8 +6,8 @@ import { defineConfig } from 'prisma/config'
  * 用于 Prisma Migrate 命令
  */
 export default defineConfig({
-  // Schema 目录路径（Prisma 会自动合并该目录下的所有 .prisma 文件）
-  schema: './src/orm_prisma',
+  // Schema 文件路径
+  schema: './src/orm_prisma/schema.prisma',
   migrations: {
     path: './src/orm_prisma/migrations',
   },

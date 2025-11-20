@@ -11,3 +11,69 @@ datasource db {
 
 //表结构视图 https://prisma-editor.bahumaish.com/schema/17244
 
+// ========== 从 sys_auth.prisma 合并 ==========
+
+// rbac 权限管理系统 1. 用户表
+model sys_user {
+    id                    String                  @id @default(uuid())
+    phone                 String                  @unique
+    password              String                  @default("123456")
+    avatar                String                  @default("https://cdn.jsdelivr.net/gh/astmain/filestore@master/avatar_default.png")
+    gender                String                  @default("未知") //男,女,未知
+    name                  String
+    remark                String                  @default("")
+    created_at            DateTime                @default(now())
+    updated_at            DateTime                @updatedAt
+    status                Boolean                 @default(true)
+    sys_depart            sys_depart[]
+    arg_user_address_take arg_user_address_take[]
+}
+
+// rbac 权限管理系统 2. 组织表 (既表示部门又表示角色)
+model sys_depart {
+    id        String       @id @default(uuid())
+    name      String
+    remark    String?
+    primary   Boolean      @default(true) //主要部门
+    parent_id String? // 自关联
+    type      String       @default("depart") // 是否是组织，如果为false就相当于角色
+    parent    sys_depart?  @relation("self_sys_depart", fields: [parent_id], references: [id], onDelete: Cascade)
+    children  sys_depart[] @relation("self_sys_depart")
+    sort      Int          @default(0)
+    sys_user  sys_user[]
+    sys_menu  sys_menu[]
+}
+
+// rbac 权限管理系统 3. 菜单表
+model sys_menu {
+    id     String @id @default(uuid())
+    name   String
+    path   String @default("")
+    remark String @default("")
+
+    type       String       @default("menu")
+    parent_id  String? // 自关联
+    parent     sys_menu?    @relation("self_sys_menu", fields: [parent_id], references: [id])
+    children   sys_menu[]   @relation("self_sys_menu")
+    sys_depart sys_depart[]
+}
+
+// ========== 从 arg_user_address_take.prisma 合并 ==========
+
+// 属性表 1. 收货地址
+model arg_user_address_take {
+    id       String   @id @default(uuid())
+    user_id  String
+    sys_user sys_user @relation(fields: [user_id], references: [id])
+
+    name   String // 收货人姓名
+    phone  String // 收货人电话
+    region Json   @default("[]") // 收货人地区 格式为：[{code: '110000', name: '北京市'}, {code: '110101', name: '东城区'}]
+
+    street     String // 收货人街道
+    is_default Boolean  @default(false) // 是否默认地址
+    type_tag   String // 标记类型
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+}
+
