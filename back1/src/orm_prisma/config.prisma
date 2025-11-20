@@ -2,12 +2,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://root:123456@103.119.2.223:2001/back?schema=public"
+}
+
 // datasource db {
 //   provider = "sqlite"
 //   url      = "file:./sqlite.db"
 // }
-
-datasource db {
-  provider = "postgresql"
-  url      = "postgresql://root:123456@103.119.2.223:2006/back?schema=public"
-}
