@@ -9,7 +9,7 @@ export default defineConfig({
   // Schema 目录路径（Prisma 会自动合并该目录下的所有 .prisma 文件）
   schema: './src/orm_prisma',
   migrations: {
-    path: './prisma/migrations',
+    path: './src/orm_prisma/migrations',
   },
   datasource: {
     // 数据库连接地址（用于迁移）
