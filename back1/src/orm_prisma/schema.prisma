@@ -1,0 +1,12 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    // 注意：Prisma 7+ 不再支持在 schema 文件中使用 url
+    // 连接 URL 需要在 prisma.config.ts 中配置（用于迁移）
+    // 运行时连接需要在 PrismaClient 实例化时传递 adapter
+}
+
+//表结构视图 https://prisma-editor.bahumaish.com/schema/17244

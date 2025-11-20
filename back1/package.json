@@ -20,9 +20,9 @@
     "dev": "nest start --watch",
     "prod": "node dist/main",
     "build": "nest build",
-    "prisma:generate": "prisma generate --schema=./src/orm_prisma/schema.prisma",
-    "prisma:push": "prisma db push --schema=./src/orm_prisma/schema.prisma --config=./src/orm_prisma/config.ts",
-    "prisma:studio": "prisma studio --schema=./src/orm_prisma/schema.prisma --config=./src/orm_prisma/config.ts",
+    "prisma:generate": "prisma generate  --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
+    "prisma:push": "    prisma db push   --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
+    "prisma:studio": "  prisma studio    --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {

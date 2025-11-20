@@ -1,19 +1,11 @@
 import { Module, Global, DynamicModule } from '@nestjs/common'
 import { PrismaClient, Prisma } from '@prisma/client'
-import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaPg as adapter_prisma_pg } from '@prisma/adapter-pg'
 import { Pool } from 'pg'
 import _ from 'lodash'
 
-// 数据库连接配置（从 config.ts 读取或使用环境变量）
-const DATABASE_URL = 'postgresql://root:123456@103.119.2.223:2006/back?schema=public'
-
-// 创建 PostgreSQL 连接池
-const pool = new Pool({
-  connectionString: DATABASE_URL,
-})
-
-// 创建 Prisma Adapter
-const adapter = new PrismaPg(pool)
+const pool = new Pool({ connectionString: 'postgresql://root:123456@103.119.2.223:2006/back?schema=public' })
+const adapter = new adapter_prisma_pg(pool)
 
 // 虚拟字段扩展
 const virtual_field_extension = Prisma.defineExtension({

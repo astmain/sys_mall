@@ -7,7 +7,7 @@ import { defineConfig } from 'prisma/config'
  */
 export default defineConfig({
   // Schema 文件路径
-  schema: './src/orm_prisma/schema.prisma',
+  schema: './src/orm_prisma',
   migrations: {
     path: './src/orm_prisma/migrations',
   },
