@@ -22,15 +22,12 @@
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
-import { api_v1 } from 'back1/dist_tool_v1_api/api_v1'
+
 import { BUS } from '@/BUS'
 import /*组件*/ env_control from './env_control.vue'
+import { api_v1 } from 'back1/dist_tool_v1_api/api_v1'
 
-// 类型定义
-interface LoginForm {
-  phone: string
-  password: string
-}
+import  type  { LoginForm } from 'back1/dist_tool_v1_api/api_v1'
 
 // 响应式数据
 const login_form = reactive<LoginForm>({

@@ -1,0 +1,31 @@
+.icon-aaa,
+.icon-love,
+.icon-error,
+.icon-success {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.icon-love {
+  background-color: black;
+  mask-image: url("@/components/icon/love.svg");
+}
+
+.icon-error {
+  background-color: black;
+  mask-image: url("@/components/icon/error.svg");
+}
+
+.icon-aaa {
+  background-color: black;
+  mask-image: url("@/components/icon/aaa.svg");
+}
+
+.icon-success {
+  background-color: black;
+  mask-image: url("@/components/icon/success.svg");
+}

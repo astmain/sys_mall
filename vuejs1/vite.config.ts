@@ -84,6 +84,25 @@ export default defineConfig({
 
   ],
 
+  optimizeDeps: {
+    exclude: [
+      'class-transformer',
+      'class-validator', 
+      '@nestjs/mapped-types',
+      '@nestjs/common',
+      '@nestjs/core',
+      'class-transformer/storage',
+      'tool_my',
+      'tool_orm_Drizzle1',
+      'validator'
+    ],
+    include: ['vue', 'vue-router', 'element-plus', 'pinia']
+  },
+
+  define: {
+    global: 'globalThis',
+  },
+
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -91,7 +110,21 @@ export default defineConfig({
     },
   },
 
-  //服务
+  build: {
+    rollupOptions: {
+      external: [
+        'class-transformer',
+        'class-validator',
+        '@nestjs/mapped-types',
+        '@nestjs/common',
+        '@nestjs/core',
+        'tool_my',
+        'tool_orm_Drizzle1',
+        'validator'
+      ]
+    }
+  },
+
   server: {
     host: '127.0.0.1',
     port: 4001,

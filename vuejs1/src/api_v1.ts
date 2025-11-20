@@ -38,6 +38,9 @@ export interface info_print_card {
 }
 export const dict_info = []
 
+// 类型定义
+type remove_ids_user_type = { ids: string[] }
+
 export let api_v1 = {
   auth: {
     find_menu_tree_by_user_id: () => axios_api.post("/v1/auth/find_menu_tree_by_user_id"),
