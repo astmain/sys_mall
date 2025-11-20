@@ -3,6 +3,20 @@
   "version": "0.0.1",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "default": "./dist/main.js"
+    },
+    "./dist_tool_v1_api/api_v1": {
+      "types": "./dist/dist_tool_v1_api/api_v1.d.ts",
+      "default": "./dist/dist_tool_v1_api/api_v1.js"
+    },
+    "./dist_tool_v1_api/*": {
+      "types": "./dist/dist_tool_v1_api/*.d.ts",
+      "default": "./dist/dist_tool_v1_api/*.js"
+    }
+  },
   "scripts": {
     "make": "pnpm i && pnpm v1",
     "dev": "nest start --watch",

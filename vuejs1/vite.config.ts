@@ -2,10 +2,20 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx' //支持jsx语法
 import VueDevTools from 'vite-plugin-vue-devtools' //vue工具
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue(), vueJsx(), VueDevTools({ launchEditor: 'cursor' })],
+
+  resolve: {
+    alias: {
+      'back1': path.resolve(__dirname, '../back1/src'),
+    },
+  },
 
   //服务
   server: {
