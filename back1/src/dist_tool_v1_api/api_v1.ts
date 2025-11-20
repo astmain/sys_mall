@@ -1,5 +1,5 @@
 import { axios_api } from './axios_api'
-import type { login } from '../v1/auth/dto/login'
+import type { login } from '@src/v1/auth/dto/login'
 
 export let api_v1 = {
   auth: {
