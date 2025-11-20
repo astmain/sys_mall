@@ -3,12 +3,24 @@
   "version": "0.0.1",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
+
+  "exports": {
+    ".": {
+      "import": "./dist/dist_tool_v1_api/api_v1.js",
+      "require": "./dist/dist_tool_v1_api/api_v1.js",
+      "types": "./dist/dist_tool_v1_api/api_v1.d.ts"
+    },
+    "./dist_tool_v1_api": {
+      "import": "./dist/dist_tool_v1_api/api_v1.js",
+      "require": "./dist/dist_tool_v1_api/api_v1.js",
+      "types": "./dist/dist_tool_v1_api/api_v1.d.ts"
+    }
+  },
   "scripts": {
     "make": "pnpm i && pnpm v1",
     "dev": "nest start --watch",
     "prod": "node dist/main",
     "build": "nest build",
-    "v1": "tsc -project tsconfig.dist_tool_v1_api.json",
     "generate": "prisma generate  --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
     "push": "    prisma db push   --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
     "studio": "  prisma studio    --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
@@ -51,17 +63,5 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/dist_tool_v1_api/api_v1.js",
-      "require": "./dist/dist_tool_v1_api/api_v1.js",
-      "types": "./dist/dist_tool_v1_api/api_v1.d.ts"
-    },
-    "./dist_tool_v1_api": {
-      "import": "./dist/dist_tool_v1_api/api_v1.js",
-      "require": "./dist/dist_tool_v1_api/api_v1.js",
-      "types": "./dist/dist_tool_v1_api/api_v1.d.ts"
-    }
   }
 }
