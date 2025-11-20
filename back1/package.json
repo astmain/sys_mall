@@ -5,14 +5,14 @@
   "types": "dist/main.d.ts",
   "exports": {
     ".": {
-      "import": "./dist_tool_v1_api/api_v1.js",
-      "require": "./dist_tool_v1_api/api_v1.js",
-      "types": "./dist_tool_v1_api/api_v1.d.ts"
+      "import": "./dist/dist_tool_v1_api/api_v1.js",
+      "require": "./dist/dist_tool_v1_api/api_v1.js",
+      "types": "./dist/dist_tool_v1_api/api_v1.d.ts"
     },
     "./dist_tool_v1_api": {
-      "import": "./dist_tool_v1_api/api_v1.js",
-      "require": "./dist_tool_v1_api/api_v1.js",
-      "types": "./dist_tool_v1_api/api_v1.d.ts"
+      "import": "./dist/dist_tool_v1_api/api_v1.js",
+      "require": "./dist/dist_tool_v1_api/api_v1.js",
+      "types": "./dist/dist_tool_v1_api/api_v1.d.ts"
     }
   },
   "scripts": {
@@ -28,11 +28,6 @@
   },
   "dependencies": {
     "@anatine/zod-nestjs": "^2.0.12",
-    "@mikro-orm/core": "^6.6.0",
-    "@mikro-orm/migrations": "^6.6.0",
-    "@mikro-orm/postgresql": "^6.6.0",
-    "@mikro-orm/reflection": "^6.6.0",
-    "@mikro-orm/sql-highlighter": "^1.0.1",
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
     "@nestjs/jwt": "^11.0.1",
@@ -44,8 +39,6 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "dayjs": "^1.11.19",
-    "drizzle-orm": "^0.44.7",
-    "drizzle-zod": "^0.8.3",
     "lodash": "^4.17.21",
     "nest-knife4j": "^1.0.1",
     "pg": "^8.16.3",
@@ -53,7 +46,6 @@
     "prisma": "^7.0.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
-    "typeorm": "^0.3.27",
     "uuid": "^13.0.0",
     "zod": "^4.1.12"
   },

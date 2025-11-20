@@ -6,7 +6,10 @@
 </template>
 <script setup lang="tsx">
 import { onMounted } from 'vue'
+// 使用 package.json exports 配置的简化导入方式
 import { api_v1 } from 'back1/dist_tool_v1_api'
+// 或者直接使用主入口
+// import { api_v1 } from 'back1'
 
 
 onMounted(async () => {

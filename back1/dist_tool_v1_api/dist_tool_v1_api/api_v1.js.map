@@ -1,1 +1,0 @@
-{"version":3,"file":"api_v1.js","sourceRoot":"","sources":["../../src/dist_tool_v1_api/api_v1.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAA;AAGvC,MAAM,CAAC,IAAI,MAAM,GAAG;IAClB,IAAI,EAAE;QACJ,KAAK,EAAE,CAAC,IAAgC,EAAE,EAAE,CAAC,SAAS,CAAC,IAAI,CAAC,gBAAgB,EAAE,IAAI,CAAC;KACpF;CACF,CAAA"}
