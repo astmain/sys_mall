@@ -29,7 +29,7 @@ async function bootstrap() {
   await filter_response(app) // 响应拦截器
   await Api_doc_group_swagger_knife4j2(app, list_module) // swagger文档
 
-  await app.listen(process.env.PORT ?? 3000)
-  console.log(`http://127.0.0.1:3000`)
+  await app.listen(process.env.PORT ?? 3001)
+  console.log(`http://127.0.0.1:3001`)
 }
 bootstrap()

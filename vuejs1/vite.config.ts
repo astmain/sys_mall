@@ -10,7 +10,7 @@ export default defineConfig({
   //服务
   server: {
     host: '127.0.0.1',
-    port: 5001,
+    port: 4001,
     open: true,
   },
 })
