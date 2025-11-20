@@ -5,14 +5,14 @@
   "types": "dist/main.d.ts",
   "exports": {
     ".": {
-      "import": "./dist_tool_v1_api/index.js",
-      "require": "./dist_tool_v1_api/index.js",
-      "types": "./dist_tool_v1_api/index.d.ts"
+      "import": "./dist_tool_v1_api/api_v1.js",
+      "require": "./dist_tool_v1_api/api_v1.js",
+      "types": "./dist_tool_v1_api/api_v1.d.ts"
     },
     "./dist_tool_v1_api": {
-      "import": "./dist_tool_v1_api/index.js",
-      "require": "./dist_tool_v1_api/index.js",
-      "types": "./dist_tool_v1_api/index.d.ts"
+      "import": "./dist_tool_v1_api/api_v1.js",
+      "require": "./dist_tool_v1_api/api_v1.js",
+      "types": "./dist_tool_v1_api/api_v1.d.ts"
     }
   },
   "scripts": {
@@ -20,9 +20,10 @@
     "dev": "nest start --watch",
     "prod": "node dist/main",
     "build": "nest build",
-    "prisma:generate": "prisma generate  --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
-    "prisma:push": "    prisma db push   --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
-    "prisma:studio": "  prisma studio    --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
+    "v1": "tsc -project tsconfig.dist_tool_v1_api.json",
+    "db:generate": "prisma generate  --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
+    "db:push": "    prisma db push   --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
+    "db:studio": "  prisma studio    --schema=./src/orm_prisma   --config=./src/orm_prisma/config.ts",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
