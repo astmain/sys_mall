@@ -6,6 +6,7 @@
     "rootDir": ".",
     "moduleResolution": "bundler",
     "skipLibCheck": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"], //支持ES2022语法,DOM,DOM.Iterable语法,// 没有 DOM.Iterable 时，这些会报错const elements = document.querySelectorAll('.my-class')
     "paths": {
       "@/*": ["src/*"]
     },
@@ -24,7 +25,6 @@
     "erasableSyntaxOnly": true, //仅允许可删除的语法
     "noFallthroughCasesInSwitch": true, //报告switch语句中遗漏的break语句
     "noUncheckedSideEffectImports": true //禁止导入具有副作用的模块，除非它们被使用
-
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

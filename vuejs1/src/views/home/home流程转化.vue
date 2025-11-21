@@ -88,7 +88,7 @@ const updateFlow = () => {
 
   // 第一层
   for (let i = 0; i < tree_menu.value.length; i++) {
-    const item = tree_menu.value[i]
+    const item = tree_menu.value[i]!
     post_y = post_y + i * 80
     node_list.push({
       id: item.id,
@@ -99,9 +99,9 @@ const updateFlow = () => {
     })
 
     // 第二层
-    if (item.children.length > 0) {
+    if (item.children && item.children.length > 0) {
       for (let j = 0; j < item.children.length; j++) {
-        const child = item.children[j]
+        const child = item.children[j]!
         post_y = post_y + j * 80
         node_list.push({
           id: child.id,
@@ -111,12 +111,10 @@ const updateFlow = () => {
           data: { name: child.name, type: child.type },
         })
 
-        let child3 = (child as any).children
-
         // 第三层
-        if (child3) {
-          for (let k = 0; k < child3.length; k++) {
-            const grandchild = child3[k]
+        if ('children' in child && child.children && child.children.length > 0) {
+          for (let k = 0; k < child.children.length; k++) {
+            const grandchild = child.children[k]!
             console.log("grandchild", grandchild.id)
             post_y = post_y + k * 80
             node_list.push({
