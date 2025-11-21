@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "make": "pnpm i",
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "make": "   pnpm i",
+    "dev": "    vue-tsc -b  &&  vite",
+    "build": "  vue-tsc -b  &&  vite build",
     "preview": "vite preview"
   },
   "dependencies": {

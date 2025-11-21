@@ -1,7 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { IsNotEmpty, IsString } from 'class-validator'
+// 我希望导入prisma的sys_user表的类型
+import { Prisma } from '@prisma/client'
 
-export class login {
+export class login implements Pick<Prisma.sys_userGetPayload<{}>, 'phone' | 'password'> {
   @ApiProperty({ description: '用户名', example: '15160315110' })
   @IsString()
   @IsNotEmpty()
@@ -11,7 +13,10 @@ export class login {
   @IsString()
   @IsNotEmpty()
   password: string
+
+
 }
 
+// 类class转接口interface
 import { util_class_to_interface } from '@src/plugins/util_class_to_interface'
 export type login_interface = util_class_to_interface<login>
