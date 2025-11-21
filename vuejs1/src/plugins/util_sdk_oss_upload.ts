@@ -5,7 +5,7 @@
 
 // SparkMD5 开始----------------------------------------
 // @ts-ignore
-import SparkMD5 from "spark-md5"
+import SparkMD5 from 'spark-md5'
 // 计算文件md5的函数
 export function get_file_md5(file: any) {
   return new Promise((resolve, reject) => {
@@ -24,7 +24,7 @@ export function get_file_md5(file: any) {
 // SparkMD5 结束----------------------------------------
 
 // axios_oss 开始----------------------------------------
-import axios from "axios"
+import axios from 'axios'
 
 const axios_instance = axios.create({
   // baseURL: 'http://192.168.0.250:60001',
@@ -37,9 +37,9 @@ const axios_instance = axios.create({
 axios_instance.interceptors.request.use(
   (config) => {
     //替换自己的token
-    config.headers.token = localStorage.getItem("token")
+    config.headers.token = localStorage.getItem('token')
     //封装时可以注释掉
-    config.url = "http://103.119.2.223:3000" + config.url
+    config.url = 'http://103.119.2.223:3000' + config.url
     return config
   },
   (error) => {
@@ -64,9 +64,9 @@ export const axios_oss = axios_instance
 let chunk_list_uploaded = [] as any[] //已经上传的分片数组
 
 // ✅上传文件                                                          callback 回调函数自己写
-export async function util_sdk_oss_upload({ file, path_static, oss_type = "oss_parse", callback = async (res: any) => { } }: { file: any; path_static: string; oss_type?: "oss" | "oss_parse" | "oss_parse_back"; callback?: (res: any) => Promise<void> }) {
+export async function util_sdk_oss_upload({ file, path_static, oss_type = 'oss_parse', callback = async (res: any) => {} }: { file: any; path_static: string; oss_type?: 'oss' | 'oss_parse' | 'oss_parse_back'; callback?: (res: any) => Promise<void> }) {
   // console.log("util_sdk_oss_upload---typeof---file", typeof file)
-  callback({ msg: "开始上传-计算文件大小1", progress: 0 })
+  callback({ msg: '开始上传-计算文件大小1', progress: 0 })
 
   file = await check_file(file)
   // console.log("util_sdk_oss_upload---file:", file)
@@ -74,51 +74,52 @@ export async function util_sdk_oss_upload({ file, path_static, oss_type = "oss_p
   const chunk_size = 1024 * 1024 * 10
   const total_chunks = Math.ceil((file as any).size / chunk_size)
   // 简单md5: 文件名+大小+lastModified
-  console.time("get_file_md5")
+  console.time('get_file_md5')
   const file_md5: any = await get_file_md5(file)
-  console.timeEnd("get_file_md5")
+  console.timeEnd('get_file_md5')
   debugger
 
   // return
   //   const file_md5 = `${file.name}_${file.size}_${file.lastModified}`
   //   console.log(`file_md5:`, file_md5)
-  let uploaded = [] // 查询已上传分片
-  callback({ msg: "开始上传-计算文件大小1", progress: 0 })
+  let uploaded = [] as any[] // 查询已上传分片
+  callback({ msg: '开始上传-计算文件大小1', progress: 0 })
 
   // ✅接口查询已上传分片
   try {
-    const res: any = await axios_oss.post("/oss_api/upload_chunk_progress", { fileMD5: file_md5 })
+    const res: any = await axios_oss.post('/oss_api/upload_chunk_progress', { fileMD5: file_md5 })
     console.log(`res:`, res)
     uploaded = res.result || []
     console.log(`uploaded:`, uploaded)
     chunk_list_uploaded = uploaded
     console.log(`已经上传的分片数量:---uploaded.length:`, uploaded.length)
     console.log(`已经上传的分片数组:---uploaded:`, uploaded)
-    callback({ msg: "开始上传-✅接口查询已上传分片", progress: 0 })
+    callback({ msg: '开始上传-✅接口查询已上传分片', progress: 0 })
   } catch (e) {
     console.log(`接口_查询已上传分片失败---e:`, e)
-    throw "接口_查询已上传分片失败"
+    throw '接口_查询已上传分片失败'
   }
 
   // ✅分片上传
   let uploaded_count = uploaded.length
   for (let i: number = 0; i < total_chunks; i++) {
+    // 示例代码util_sdk_oss_upload.ts
     if (uploaded.includes(i)) continue // (跳过)已经上传的分片不重复上传
     const start = i * chunk_size
     const end = Math.min((file as any).size, start + chunk_size)
     const chunk = (file as any).slice(start, end)
     const form = new FormData()
-    form.append("chunkIndex", i.toString())
-    form.append("fileMD5", file_md5)
-    form.append("chunk", chunk)
-    callback({ msg: "开始上传-分片上传中...", progress: i / total_chunks })
+    form.append('chunkIndex', i.toString())
+    form.append('fileMD5', file_md5)
+    form.append('chunk', chunk)
+    callback({ msg: '开始上传-分片上传中...', progress: i / total_chunks })
     let retry = 0 //重试次数
     let success = false
     //重试3次
     while (retry < 3 && !success) {
       try {
         // 接口_分片上传
-        const res_file_upload_chunk: any = await axios_oss.post("/oss_api/upload_chunk_file", form)
+        const res_file_upload_chunk: any = await axios_oss.post('/oss_api/upload_chunk_file', form)
         if (res_file_upload_chunk.code === 200) {
           console.log(`成功-分片上传:res_file_upload_chunk:`, res_file_upload_chunk)
           uploaded_count++ //已经上传的分片数量+1
@@ -150,11 +151,11 @@ export async function util_sdk_oss_upload({ file, path_static, oss_type = "oss_p
     path_static: path_static,
     oss_type: oss_type,
   }
-  const merge_res: any = await axios_oss.post("/oss_api/upload_chuck_merge", body)
+  const merge_res: any = await axios_oss.post('/oss_api/upload_chuck_merge', body)
   console.log(`merge_res:`, merge_res)
   if (callback) {
     callback(merge_res)
-    callback({ msg: "成功:-上传完毕", progress: 100 })
+    callback({ msg: '成功:-上传完毕', progress: 100 })
   } else {
     // console.error(`没有---callback函数:`, callback)
   }
@@ -163,21 +164,21 @@ export async function util_sdk_oss_upload({ file, path_static, oss_type = "oss_p
 
 // 判断file的类型并且返回file(file可是File和blob:http)
 async function check_file(file: any) {
-  if (Object.prototype.toString.call(file) === "[object File]") {
+  if (Object.prototype.toString.call(file) === '[object File]') {
     return file
-  } else if (String(file).startsWith("blob:http")) {
+  } else if (String(file).startsWith('blob:http')) {
     return await url_to_file(file)
   } else {
-    throw new Error("file类型错误1")
+    throw new Error('file类型错误1')
   }
 
-  async function url_to_file(url: string, name = "avatar.png") {
+  async function url_to_file(url: string, name = 'avatar.png') {
     try {
       const res = await fetch(url)
       const blob = await res.blob()
-      return new File([blob], name, { type: blob.type || "image/png" })
+      return new File([blob], name, { type: blob.type || 'image/png' })
     } catch (error) {
-      throw new Error("file类型错误2")
+      throw new Error('file类型错误2')
     }
   }
 }
