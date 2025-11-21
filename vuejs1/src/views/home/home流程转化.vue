@@ -88,7 +88,7 @@ const updateFlow = () => {
 
   // 第一层
   for (let i = 0; i < tree_menu.value.length; i++) {
-    const item = tree_menu.value[i]!
+    const item = tree_menu.value[i]
     post_y = post_y + i * 80
     node_list.push({
       id: item.id,
