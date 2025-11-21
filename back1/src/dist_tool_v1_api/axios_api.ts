@@ -16,7 +16,7 @@ const axios_instance = axios.create({
 axios_instance.interceptors.request.use(
   (config) => {
     // config.url = (window as any).BUS.url_api_curr.url + config.url
-    config.url = 'http://127.0.0.1:3000' + config.url
+    config.url = 'http://127.0.0.1:3001' + config.url
     // config.url = 'http://127.0.0.1:3000'
     config.headers['token'] = localStorage.getItem('token')
     // config.headers['token'] = import.meta.env.VITE_jwt_token_swagger
