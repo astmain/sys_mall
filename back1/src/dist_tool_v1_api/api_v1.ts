@@ -1,13 +1,10 @@
 import { axios_api } from './axios_api'
-import { login } from '../v1/auth/dto/login'
-import { z } from 'zod'
 
-//从 login 类动态转成 interface 类型，并展开显示
-const loginInstance = new login()
-export type LoginForm = typeof loginInstance & {}
+import type { login_interface } from '../v1/auth/dto/login'
+export type { login_interface } from '../v1/auth/dto/login'
 
 export let api_v1 = {
   auth: {
-    login: (form: LoginForm) => axios_api.post('/v1/auth/login', form),
+    login: (form: login_interface) => axios_api.post('/v1/auth/login', form),
   },
 }

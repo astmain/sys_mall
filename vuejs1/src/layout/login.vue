@@ -25,12 +25,12 @@ import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 
 import { BUS } from '@/BUS'
 import /*组件*/ env_control from './env_control.vue'
-import { api_v1 } from 'back1/dist_tool_v1_api/api_v1'
+import { api_v1, type login_interface } from 'back1/dist_tool_v1_api/api_v1'
 
-import  type  { LoginForm } from 'back1/dist_tool_v1_api/api_v1'
+// import type { LoginForm } from 'back1/dist_tool_v1_api/api_v1'
 
 // 响应式数据
-const login_form = reactive<LoginForm>({
+const login_form = reactive<login_interface>({
   phone: '15160315110',
   password: '123456',
 })
