@@ -18,11 +18,13 @@
 
     /* Linting */
     "strict": true, //启用所有严格类型检查选项
-    "noUnusedLocals": true, //报告未使用的局部变量
-    "noUnusedParameters": true, //报告未使用的函数参数
+    "noImplicitAny": false, //允许any隐式类型(开发阶段禁用,生产阶段开启)
+    "noUnusedLocals": false, //报告未使用的局部变量(开发阶段禁用,生产阶段开启)
+    "noUnusedParameters": false, //报告未使用的函数参数(开发阶段禁用,生产阶段开启)
     "erasableSyntaxOnly": true, //仅允许可删除的语法
     "noFallthroughCasesInSwitch": true, //报告switch语句中遗漏的break语句
     "noUncheckedSideEffectImports": true //禁止导入具有副作用的模块，除非它们被使用
+
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
