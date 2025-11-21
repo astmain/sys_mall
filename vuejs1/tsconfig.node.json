@@ -8,19 +8,19 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
+    "moduleResolution": "bundler", //模块解析策略为捆绑器
+    "allowImportingTsExtensions": true, //允许导入带有.ts扩展名的模块
+    "verbatimModuleSyntax": true, // 启用逐字模块语法以保留导入和导出语句的原始形式
+    "moduleDetection": "force", //强制模块检测以确保所有文件都作为模块处理
+    "noEmit": true, //不生成输出文件
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "strict": true, //启用所有严格类型检查选项
+    "noUnusedLocals": true, //报告未使用的局部变量
+    "noUnusedParameters": true, //报告未使用的函数参数
+    "erasableSyntaxOnly": true, //仅允许可删除的语法
+    "noFallthroughCasesInSwitch": true, //报告switch语句中遗漏的break语句
+    "noUncheckedSideEffectImports": true //禁止导入具有副作用的模块，除非它们被使用
   },
   "include": ["vite.config.ts"]
 }

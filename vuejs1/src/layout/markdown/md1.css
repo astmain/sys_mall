@@ -1,0 +1,47 @@
+/* 可选：引入 GitHub 风格的 Markdown 样式        https://lxblog.com/qianwen/share?shareId=2ed7b553-6add-4d40-89d5-a5cb7e3a33ef   */
+.markdown {
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; */
+  font-family: Consolas;
+  line-height: 1.2;
+  color: #333;
+}
+
+.markdown h1 {
+  color: #000000 !important;
+  font-size: 20px;
+  margin-top: 8px;
+  /* border-bottom: 1px solid #a7a7a7 !important; */
+}
+
+.markdown ul li {
+  margin-left: 8px !important;
+}
+
+.markdown pre {
+  background-color: #dfdede !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  min-width: 800px !important;
+  max-height: 100% !important;
+  /* flex:1 !important; */
+  /* display: flex !important; */
+  /* max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #a7a7a7 #dfdede !important;
+  scrollbar-gutter: stable !important;
+  scrollbar-gutter: stable !important; */
+  /* margin: 1em 0 !important; */
+}
+
+.markdown code {
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: Consolas !important;
+}
