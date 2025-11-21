@@ -1,10 +1,7 @@
-import { drizzle } from 'drizzle-orm/node-postgres'
-import { db_url } from './db_config'
-import { users } from './users'
-
 import { and, type AnyColumn, type SQL, ilike, like, asc, eq, lte } from 'drizzle-orm'
 import { db_where } from './db_where'
 import { db } from './db_connect'
+import { users } from './table_all'
 
 main()
 async function main() {
