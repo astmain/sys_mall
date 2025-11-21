@@ -18,3 +18,10 @@ export function Api_Get(label: string, description?: string, Res_type?: any) {
     return decorators(target, propertyKey, descriptor)
   }
 }
+
+// 示例代码Api_Get.ts
+let list = [{ aaa: 111, bbb: 111 }]
+for (let i = 0; i < list.length; i++) {
+  let item = list[i]
+  console.log(item.aaa)
+}

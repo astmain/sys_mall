@@ -79,7 +79,7 @@ export async function util_sdk_oss_upload({ file, path_static, oss_type = "oss_p
   console.timeEnd("get_file_md5")
   debugger
 
-  return
+  // return
   //   const file_md5 = `${file.name}_${file.size}_${file.lastModified}`
   //   console.log(`file_md5:`, file_md5)
   let uploaded = [] // 查询已上传分片

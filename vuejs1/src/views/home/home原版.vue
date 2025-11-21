@@ -1,7 +1,4 @@
 <template>
-
-
-
   <pre>{{ tree_menu }}</pre>
 </template>
 
@@ -61,4 +58,18 @@ let tree_menu = ref([
     ],
   },
 ])
+
+
+function updateFlow() {
+
+
+
+  // 示例代码vuejs1
+  let list = [{ aaa: 111, bbb: 111 }]
+  for (let i = 0; i < list.length; i++) {
+    let item = list[i]
+    console.log(item.aaa)
+  }
+
+}
 </script>
