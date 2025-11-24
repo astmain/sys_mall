@@ -2,10 +2,7 @@ import { Prisma } from '@prisma/client'
 import { ApiProperty, PickType, OmitType, IntersectionType, PartialType } from '@nestjs/swagger'
 import { IsNotEmpty, IsString, IsBoolean, IsOptional } from 'class-validator'
 
-// 排除关系字段，只实现基础字段
-type aaaa_type = Omit<Prisma.sys_userGetPayload<{}>, 'sys_depart' | 'arg_user_address_take'>
-
-export class aaaa implements aaaa_type {
+export class sys_user implements Omit<Prisma.sys_userGetPayload<{}>, 'sys_depart' | 'arg_user_address_take'> {
   @ApiProperty({ description: '用户ID', example: 'uuid-string' })
   @IsString()
   id: string
