@@ -13,8 +13,4 @@ model arg_user_address_take {
     type_tag   String // 标记类型
     created_at DateTime @default(now())
     updated_at DateTime @updatedAt
-
-
-    
 }
-
