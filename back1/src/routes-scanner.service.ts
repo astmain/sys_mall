@@ -12,7 +12,6 @@ export class RoutesScanner implements OnModuleInit {
 
   onModuleInit() {
     const controllers = this.discoveryService.getControllers()
-    const routes: { method: string; path: string }[] = []
 
     for (const wrapper of controllers) {
       const { instance } = wrapper
@@ -37,14 +36,9 @@ export class RoutesScanner implements OnModuleInit {
         const fullPath = [controllerPath, routePath].filter(Boolean).join('/').replace(/\/+/g, '/')
         if (!fullPath.includes('login')) continue
         // routes.push({ method: RequestMethod[requestMethod], path: fullPath })
-        console.log(`111---fullPath:`,requestMethod, fullPath)
+        console.log(`111---fullPath:`, requestMethod, fullPath)
         // 我想得到login的dto类
-
-
       }
     }
-
-    // 这里你可以把 routes 存数据库 / 打日志 / 做权限表
-    // console.log('All routes:', routes)
   }
 }
