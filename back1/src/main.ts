@@ -7,6 +7,7 @@ import { filter_dto } from './plugins/filter_dto'
 import { filter_request } from './plugins/filter_request'
 import { filter_response } from './plugins/filter_response'
 import { Api_doc_group_swagger_knife4j2 } from './plugins/Api_doc_group_swagger_knife4j2'
+import { RoutesScanner } from './routes-scanner.service'
 
 // ================================== 模块 ==================================
 import { App_Auth_Module } from './App_Auth'
@@ -18,6 +19,7 @@ const list_module = [v1_module, { title: 'common', description: '通用接口', 
 @Module({
   imports: [App_Auth_Module, ...list_module.flatMap((o) => o.imports)],
   controllers: [],
+  providers: [RoutesScanner],
 })
 class App_Module {}
 

@@ -39,24 +39,30 @@ export async function Api_doc_group_swagger_knife4j2(app: any, list_module: any[
 
     // console.log(Object.keys(document.paths)) // 所有路由 path
 
-    const components = document?.components?.schemas
-    console.log(`999---components:`, components)
-    if (document?.info?.title === 'v1') {
-      console.log(`111---document:`, document)
-      for (const path of Object.keys(document.paths)) {
-        if (!path.includes('login')) return
-        console.log(`222---path:`, path)
-        const [method] = Object.keys(document.paths[path])
-        console.log(`333---method:`, method)
-        const summary = document.paths[path][method].summary
-        console.log(`444---summary:`, summary)
-        document.paths[path]
-        console.log(`555---document.paths[path]:`, JSON.parse(JSON.stringify(document.paths[path])))
-        console.log(`666---parameters`, JSON.parse(JSON.stringify(document.paths[path])).post.parameters)
-        console.log(`777---requestBody`, JSON.parse(JSON.stringify(document.paths[path])).post.requestBody)
-        console.log(`888---requestBody`, JSON.parse(JSON.stringify(document.paths[path])).post.requestBody['content']['application/json'].schema)
-        console.log(`999---components`,JSON.stringify(components,null,2))
-      } // 所有路由 path
-    }
+    // parse_swagger_document(document)
+  }
+}
+
+
+
+function parse_swagger_document(document: any) {
+  const components = document?.components?.schemas
+  console.log(`999---components:`, components)
+  if (document?.info?.title === 'v1') {
+    console.log(`111---document:`, document)
+    for (const path of Object.keys(document.paths)) {
+      if (!path.includes('login')) return
+      console.log(`222---path:`, path)
+      const [method] = Object.keys(document.paths[path])
+      console.log(`333---method:`, method)
+      const summary = document.paths[path][method].summary
+      console.log(`444---summary:`, summary)
+      document.paths[path]
+      console.log(`555---document.paths[path]:`, JSON.parse(JSON.stringify(document.paths[path])))
+      console.log(`666---parameters`, JSON.parse(JSON.stringify(document.paths[path])).post.parameters)
+      console.log(`777---requestBody`, JSON.parse(JSON.stringify(document.paths[path])).post.requestBody)
+      console.log(`888---requestBody`, JSON.parse(JSON.stringify(document.paths[path])).post.requestBody['content']['application/json'].schema)
+      console.log(`999---components`,JSON.stringify(components,null,2))
+    } // 所有路由 path
   }
 }
