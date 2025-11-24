@@ -38,6 +38,7 @@ export class RoutesScanner implements OnModuleInit {
         if (!fullPath.includes('login')) continue
         // routes.push({ method: RequestMethod[requestMethod], path: fullPath })
         console.log(`111---fullPath:`,requestMethod, fullPath)
+        // 我想得到login的dto类
 
 
       }
