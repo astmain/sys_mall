@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core'
 import { Module } from '@nestjs/common'
+import { DiscoveryService } from '@nestjs/core'
 
 // ================================== 插件 ==================================
 import { filter_cors } from './plugins/filter_cors'
@@ -19,7 +20,7 @@ const list_module = [v1_module, { title: 'common', description: '通用接口', 
 @Module({
   imports: [App_Auth_Module, ...list_module.flatMap((o) => o.imports)],
   controllers: [],
-  providers: [RoutesScanner],
+  providers: [DiscoveryService, RoutesScanner],
 })
 class App_Module {}
 

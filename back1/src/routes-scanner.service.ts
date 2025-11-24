@@ -35,15 +35,15 @@ export class RoutesScanner implements OnModuleInit {
         if (routePath == null || requestMethod == null) continue
 
         const fullPath = [controllerPath, routePath].filter(Boolean).join('/').replace(/\/+/g, '/')
+        if (!fullPath.includes('login')) continue
+        // routes.push({ method: RequestMethod[requestMethod], path: fullPath })
+        console.log(`111---fullPath:`,requestMethod, fullPath)
 
-        routes.push({
-          method: RequestMethod[requestMethod], // 'GET' | 'POST' ...
-          path: fullPath,
-        })
+
       }
     }
 
     // 这里你可以把 routes 存数据库 / 打日志 / 做权限表
-    console.log('All routes:', routes)
+    // console.log('All routes:', routes)
   }
 }
