@@ -40,6 +40,9 @@ export async function Api_doc_group_swagger_knife4j2(app: any, list_module: any[
     // console.log(Object.keys(document.paths)) // 所有路由 path
 
     // parse_swagger_document(document)
+    import('fs').then(fs => {
+      fs.writeFileSync('./openapi.json', JSON.stringify(document, null, 2));
+    });
   }
 }
 

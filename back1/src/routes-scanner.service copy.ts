@@ -2,7 +2,7 @@
 import { Injectable, OnModuleInit, RequestMethod } from '@nestjs/common'
 import { DiscoveryService, Reflector } from '@nestjs/core'
 import { PATH_METADATA, METHOD_METADATA } from '@nestjs/common/constants'
-
+import { getSchemaPath } from '@nestjs/swagger'
 @Injectable()
 export class RoutesScanner implements OnModuleInit {
   constructor(
@@ -35,15 +35,12 @@ export class RoutesScanner implements OnModuleInit {
         if (routePath == null || requestMethod == null) continue
 
         const fullPath = [controllerPath, routePath].filter(Boolean).join('/').replace(/\/+/g, '/')
-
-        routes.push({
-          method: RequestMethod[requestMethod], // 'GET' | 'POST' ...
-          path: fullPath,
-        })
+        // 我想得到login的dto类
+        const dtoClass = this.reflector.get<any>(getSchemaPath(handler), handler)
+        console.log(`222---dtoClass:`, dtoClass)
       }
     }
 
-    // 这里你可以把 routes 存数据库 / 打日志 / 做权限表
-    console.log('All routes:', routes)
+
   }
 }

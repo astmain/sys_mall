@@ -34,5 +34,6 @@ async function bootstrap() {
 
   await app.listen(process.env.PORT ?? 3001)
   console.log(`http://127.0.0.1:3001`)
+  // https://www.doubao.com/thread/wb0af11e7dff1fb54
 }
 bootstrap()

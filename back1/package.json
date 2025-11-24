@@ -28,6 +28,7 @@
     "drizzle:generate": "drizzle-kit generate   --config=./src/orm_drizzle/db_config.ts",
     "drizzle:migrate": " drizzle-kit migrate    --config=./src/orm_drizzle/db_config.ts",
     "drizzle:studio": "  drizzle-kit studio     --config=./src/orm_drizzle/db_config.ts",
+    "api": "npx openapi-typescript-codegen --input ./openapi.json --output ./api-client --client axios",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "class-validator": "^0.14.2",
     "dayjs": "^1.11.19",
     "drizzle-orm": "^0.44.7",
+    "form-data": "^4.0.5",
     "lodash": "^4.17.21",
     "nest-knife4j": "^1.0.1",
     "pg": "^8.16.3",
@@ -62,6 +64,7 @@
     "@types/node": "^22.10.7",
     "@types/pg": "^8.15.6",
     "drizzle-kit": "^0.31.6",
+    "openapi-typescript-codegen": "^0.29.0",
     "prettier": "^3.4.2",
     "source-map-support": "^0.5.21",
     "ts-loader": "^9.5.2",
